@@ -18,17 +18,24 @@ class MyDrawer extends StatelessWidget {
       child: ListView(
         children: [
           const MyDrawerHeader(),
-          ListTile(
-            dense: true,
-            horizontalTitleGap: 8.0,
-            minLeadingWidth: 10.0,
-            leading: const Icon(Icons.grid_4x4, size: 35.0,),
-            title: const Text("GridView"),
-            subtitle: const Text("Vista en cuadros"),
-            trailing: const Icon(Icons.arrow_forward_ios_outlined, size: 20.0,),
-            onTap: (){
-              Navigator.pop(context);
-            },
+          ListView.builder(
+            physics:  const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 30,
+            itemBuilder: (context, i){
+              return ListTile(
+                dense: true,
+                horizontalTitleGap: 8.0,
+                minLeadingWidth: 10.0,
+                leading: const Icon(Icons.grid_4x4, size: 35.0,),
+                title: const Text("GridView"),
+                subtitle: Text("${i}"),
+                trailing: const Icon(Icons.arrow_forward_ios_outlined, size: 20.0,),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              );
+            }
           ),
         ],
       ),
