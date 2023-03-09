@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:my_tools/src/Widgets/my_drawe_header.dart';
+import 'package:my_tools/src/utils/drawer_items.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({Key? key}) : super(key: key);
+  final Function(int) cIndex;
+  const MyDrawer({Key? key, required this.cIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+   List<MyItems> items = DrawerItems().items;
+
+
     return Drawer(
       backgroundColor: Colors.grey[100],
       shape: const Border(
@@ -21,17 +27,18 @@ class MyDrawer extends StatelessWidget {
           ListView.builder(
             physics:  const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: 30,
+            itemCount: items.length,
             itemBuilder: (context, i){
               return ListTile(
                 dense: true,
                 horizontalTitleGap: 8.0,
                 minLeadingWidth: 10.0,
-                leading: const Icon(Icons.grid_4x4, size: 35.0,),
-                title: const Text("GridView"),
-                subtitle: Text("${i}"),
+                leading: Icon(items[i].icon, size: 35.0,),
+                title: Text(items[i].title),
+                subtitle: Text(items[i].subtitle),
                 trailing: const Icon(Icons.arrow_forward_ios_outlined, size: 20.0,),
                 onTap: (){
+                  cIndex(i);
                   Navigator.pop(context);
                 },
               );
@@ -41,4 +48,14 @@ class MyDrawer extends StatelessWidget {
       ),
     );
   }
+}
+
+
+class MyItems {
+  String title;
+  IconData icon;
+  String subtitle;
+
+  MyItems({required this.title, required this.icon, required this.subtitle});
+
 }
