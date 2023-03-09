@@ -55,7 +55,8 @@ class MyItems {
   String title;
   IconData icon;
   String subtitle;
+  Widget route;
 
-  MyItems({required this.title, required this.icon, required this.subtitle});
+  MyItems({required this.title, required this.icon, required this.subtitle, required this.route});
 
 }
