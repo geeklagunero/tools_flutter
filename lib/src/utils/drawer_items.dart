@@ -3,6 +3,7 @@ import 'package:my_tools/src/Pages/local_image.dart';
 import 'package:my_tools/src/Pages/my_gridview.dart';
 import 'package:my_tools/src/Pages/my_pageview.dart';
 import 'package:my_tools/src/Pages/my_slider.dart';
+import 'package:my_tools/src/Pages/my_stack.dart';
 import 'package:my_tools/src/Widgets/my_drawer.dart';
 
 
@@ -13,5 +14,6 @@ class DrawerItems {
     MyItems(title: "PageView", icon: Icons.pages_outlined, subtitle: "Vista de Paginas", route: const MyPageView()),
     MyItems(title: "GridView", icon: Icons.grid_4x4, subtitle: "Vista de cuadros", route: const MyGridView()),
     MyItems(title: "Slider", icon: Icons.circle, subtitle: "Vista de Arrastrar", route: const MySlider()),
+    MyItems(title: "Stack", icon: Icons.satellite, subtitle: "Vista de Stack", route: const MyStack()),
   ];
 }

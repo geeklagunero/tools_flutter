@@ -30,7 +30,9 @@ class _HomePageState extends State<HomePage> {
     List<MyItems> myBody = DrawerItems().items;
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text(myBody[index].title),
+      ),
       drawer: MyDrawer(
         cIndex: (i){
           setState(() {
